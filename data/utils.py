@@ -1,5 +1,5 @@
 from data.datasets import imagenet, imagenetv2, imagenet_sketch, imagenet_a, imagenet_r, oxford_pets, eurosat,\
-    stanford_cars, caltech101, sun397, fgvc, food101, oxford_flowers, dtd, ucf101
+    stanford_cars, caltech101, sun397, fgvc, food101, oxford_flowers, dtd, ucf101, my_new_dataset
 from torch.utils.data import DataLoader
 from PIL import Image
 from torchvision.transforms import \
@@ -39,6 +39,8 @@ def set_loader(id_dataset, transforms=None, partition="test", batch_size=128, sh
         dataset = dtd.Dataset(transform=transforms)
     elif id_dataset == "ucf":
         dataset = ucf101.Dataset(transform=transforms)
+    elif id_dataset == "my_new_dataset":
+        dataset = my_new_dataset.Dataset(transform=transforms)
     else:
         print("Dataset not supported")
         return None
